@@ -20,8 +20,8 @@ steps:
     npm install
     ng build --prod
   displayName: 'npm install and build'
-- task: PublishPipelineArtifact@1
+- task: PublishBuildArtifacts@1
   inputs:
-    targetPath: '$(Pipeline.Workspace)/dist'
-    artifact: 'ngazuredist'
-    publishLocation: 'pipeline'
+    PathtoPublish: '$(Build.ArtifactStagingDirectory)'
+    ArtifactName: 'ngazurebuildartifact'
+    publishLocation: 'Container'
